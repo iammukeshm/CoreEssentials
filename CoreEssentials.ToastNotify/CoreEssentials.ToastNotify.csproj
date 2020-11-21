@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Mukesh Murugan</Authors>
     <Company>codewithmukesh</Company>
@@ -14,5 +13,9 @@
     <FileVersion>0.0.0.2</FileVersion>
     <Version>0.0.2</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Notifiers\notyf\" />
+  </ItemGroup>
 
 </Project>
