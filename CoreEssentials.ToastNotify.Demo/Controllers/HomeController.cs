@@ -14,21 +14,21 @@ namespace CoreEssentials.ToastNotify.Demo.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public IToastNotifyService _notifyService { get; }
+public IToastNotifyService _notifyService { get; }
 
-        public HomeController(ILogger<HomeController> logger, IToastNotifyService notifyService)
-        {
-            _logger = logger;
-            _notifyService = notifyService;
-        }
+public HomeController(ILogger<HomeController> logger, IToastNotifyService notifyService)
+{
+    _logger = logger;
+    _notifyService = notifyService;
+}
 
         public IActionResult Index()
         {
-            _notifyService.Success("Success");
-            _notifyService.Error("Error!");
-            _notifyService.Warning("Warning");
-            _notifyService.Information("Here is an Information");
-            _notifyService.Custom("Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "orange", "fa fa-gear");
+            _notifyService.Success("Sucess Notification - closes in 3 seconds.",3);
+            _notifyService.Error("Error Notification - closes in 6 seconds.", 6);
+            _notifyService.Warning("Warning Notification - closes in 6 seconds.", 6);
+            _notifyService.Information("Information Notification - closes in 6 seconds.", 6);
+            _notifyService.Custom("Custom notification - closes in 10 seconds.", "#135224", "fa fa-gear",30);
             return View();
         }
 
