@@ -1,6 +1,6 @@
 ﻿# ToastNotify - Elegant Notifications For ASP.NET Core Applications
 
-Toast Notify is a Minimal & Elegant Toast Notification Package for ASP.NET Core Applications that can be invoked via C#. Compatilble with ASP.NET Core 3.1 and .NET 5.
+Toast Notify is a Minimal & Elegant Toast Notification Package for ASP.NET Core Web Applications that can be invoked via C#. Compatilble with ASP.NET Core 3.1 and .NET 5.
 
 ![Toast Notify ](https://media.giphy.com/media/f5jXGMSqkdGcVh0WbZ/source.gif)
 
@@ -13,7 +13,7 @@ Toast Notify is a Minimal & Elegant Toast Notification Package for ASP.NET Core 
 - 👴🏽 Works with TempData internally.
 
 More Features Coming Soon.
-
+> Not Compatible with Blazor SDK. Intended only for ASP.NET Core Web Applications.
 
 ## Installation
 
@@ -78,7 +78,7 @@ _notifyService.Warning("This is a Warning Notification");
 _notifyService.Information("This is an Information Notification");
 ```
 #### Set Toast Duration
-You can set the duration(in seconds) after which the toast will be dismissed.
+By default, the toast gets dismissed in 5 seconds. You can set the duration(in seconds) after which the toast will be dismissed.
 ```csharp
 _notifyService.Success("This toast will be dismissed in 10 seconds.",10);
 ```
