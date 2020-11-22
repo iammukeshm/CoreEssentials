@@ -40,7 +40,7 @@ services.AddToastNotify();
 ```
 
 ### Global Settings
-It is not possible (from version 0.0.4) to set the position of the toasts and duration globally while registering the service.
+It is now possible (from version 0.0.4) to set the position of the toasts and duration globally while registering the service.
 ```csharp
 services.AddToastNotify(new ToastNotifyOptions(1, ToastNotifyPositions.BottomCenter));
 ```
