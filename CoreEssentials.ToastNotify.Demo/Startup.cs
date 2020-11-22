@@ -1,4 +1,5 @@
 using CoreEssentials.ToastNotify.Extensions;
+using CoreEssentials.ToastNotify.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,7 +25,7 @@ namespace CoreEssentials.ToastNotify.Demo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddToastNotify();
+            services.AddToastNotify(new ToastNotifyOptions(1, ToastNotifyPositions.BottomLeft));
             services.AddControllersWithViews();
         }
 

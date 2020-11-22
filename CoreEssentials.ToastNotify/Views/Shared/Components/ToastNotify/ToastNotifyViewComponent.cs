@@ -1,9 +1,7 @@
 ﻿using CoreEssentials.ToastNotify.Helpers;
+using CoreEssentials.ToastNotify.Models;
 using CoreEssentials.ToastNotify.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
 {
@@ -12,16 +10,19 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
     {
         private readonly IToastNotifyService _service;
 
-        public ToastNotifyViewComponent(IToastNotifyService service)
+        public ToastNotifyViewComponent(IToastNotifyService service, ToastNotifyOptions options)
         {
             this._service = service;
+            _options = options;
         }
+
+        public ToastNotifyOptions _options { get; }
+
         public IViewComponentResult Invoke()
         {
-            var toastNotifyOptions = new ToastNotifyOptions();
             var model = new ToastNotifyViewModel
             {
-                Configuration = toastNotifyOptions.ToJson(),
+                Configuration = _options.ToJson(),
                 Notifications = _service.ReadAllNotifications()
             };
             return View("Default", model);

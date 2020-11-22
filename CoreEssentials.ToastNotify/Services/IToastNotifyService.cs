@@ -8,11 +8,11 @@ namespace CoreEssentials.ToastNotify.Services
 {
     public interface IToastNotifyService
     {
-        void Success(string message, int durationInSeconds = NotificationConstants.DefaultDuration);
-        void Error(string message, int durationInSeconds = NotificationConstants.DefaultDuration);
-        void Information(string message, int durationInSeconds = NotificationConstants.DefaultDuration);
-        void Warning(string message , int durationInSeconds = NotificationConstants.DefaultDuration);
-        void Custom(string message, string backgroundColor = "black", string iconClassName = "home", int durationInSeconds = NotificationConstants.DefaultDuration);
+        void Success(string message, int? durationInSeconds = null);
+        void Error(string message, int? durationInSeconds = null);
+        void Information(string message, int? durationInSeconds = null);
+        void Warning(string message , int? durationInSeconds = null);
+        void Custom(string message, int? durationInSeconds = null, string backgroundColor = "black", string iconClassName = "home");
         IEnumerable<Notification> GetNotifications();
         IEnumerable<Notification> ReadAllNotifications();
         void RemoveAll();

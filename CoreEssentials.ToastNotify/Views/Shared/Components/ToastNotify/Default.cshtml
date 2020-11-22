@@ -54,34 +54,51 @@
 <script type="text/javascript">
 
     function toastNotifySuccess(message, duration) {
-
-        notyf.success({ message: message, duration: duration });
+        if (duration) { notyf.success({ message: message, duration: duration }); }
+        else { notyf.success({ message: message }); }
     }
     function toastNotifyError(message, duration) {
-
-        notyf.error({ message: message, duration: duration });
+        if (duration) { notyf.error({ message: message, duration: duration }); }
+        else { notyf.error({ message: message });}
     }
     function toastNotifyWarning(message, duration) {
-        notyf.open({ type: 'warning', message: message, duration: duration });
+        if (duration) { notyf.open({ type: 'warning', message: message, duration: duration }); }
+        else { notyf.open({ type: 'warning', message: message });}
+       
     }
     function toastNotifyInformation(message, duration) {
-        notyf.open({ type: 'info', message: message, duration: duration });
+        if (duration) { notyf.open({ type: 'info', message: message, duration: duration }); }
+        else { notyf.open({ type: 'info', message: message });}
+        
     }
     function toastNotifyCustom(message, duration, color, iconClass) {
 
         var lightOrDarkClassName = pickTextColorBasedOnBgColorAdvanced(color);
         var iconClassName = iconClass.concat(' ').concat(lightOrDarkClassName);
-        notyf.open({
-            type: 'custom',
-            message: message,
-            duration: duration,
-            className: lightOrDarkClassName,
-            background: color,
-            icon: {
-                className: iconClassName,
-                tagName: 'i'
-            }
-        });
+        if (duration) {
+            notyf.open({
+                type: 'custom',
+                message: message,
+                duration: duration,
+                className: lightOrDarkClassName,
+                background: color,
+                icon: {
+                    className: iconClassName,
+                    tagName: 'i'
+                }
+            }); }
+        else {
+            notyf.open({
+                type: 'custom',
+                message: message,
+                className: lightOrDarkClassName,
+                background: color,
+                icon: {
+                    className: iconClassName,
+                    tagName: 'i'
+                }
+            });}
+        
     }
     function colourNameToHex(colour) {
         var colours = {

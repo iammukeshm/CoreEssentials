@@ -2,6 +2,7 @@
 using CoreEssentials.ToastNotify.Helpers;
 using CoreEssentials.ToastNotify.Models;
 using CoreEssentials.ToastNotify.Services;
+using CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,8 +15,12 @@ namespace CoreEssentials.ToastNotify.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddToastNotify(this IServiceCollection services)
+        public static void AddToastNotify(this IServiceCollection services, ToastNotifyOptions options = null)
         {
+            if(options == null)
+            {
+                options = new ToastNotifyOptions();
+            }    
             if (services == null)
             {
                 throw new ArgumentNullException(nameof(services));
@@ -40,7 +45,7 @@ namespace CoreEssentials.ToastNotify.Extensions
             //Add TempDataWrapper for accessing and adding values to tempdata.
             services.AddSingleton<ITempDataService, TempDataService>();
             services.AddSingleton<INotificationContainer<Notification>, NotificationContainer<Notification>>();
-
+            services.AddSingleton(options);
             //Add the ToastNotification implementation
             services.AddScoped<IToastNotifyService, ToastNotifyService>();
         }

@@ -16,17 +16,17 @@ namespace CoreEssentials.ToastNotify.Services
         {
             this._container = container;
         }
-        public void Custom(string message, string backgroundColor = "black", string iconClassName = "info", int durationInSeconds = NotificationConstants.DefaultDuration)
+        public void Custom(string message, int? durationInSeconds = null, string backgroundColor = "black", string iconClassName = "info")
         {
-            var toastMessage = new Notification(NotificationType.Custom, message, durationInSeconds);
+            var toastMessage = new Notification(Enums.NotificationType.Custom, message, durationInSeconds);
             toastMessage.Icon = iconClassName;
             toastMessage.BackgroundColor = backgroundColor;
             _container.Add(toastMessage);
         }
 
-        public void Error(string message, int durationInSeconds = NotificationConstants.DefaultDuration)
+        public void Error(string message, int? durationInSeconds = null)
         {
-            var toastMessage = new Notification(NotificationType.Error, message, durationInSeconds);
+            var toastMessage = new Notification(Enums.NotificationType.Error, message, durationInSeconds);
             _container.Add(toastMessage);
         }
 
@@ -35,9 +35,9 @@ namespace CoreEssentials.ToastNotify.Services
             return _container.GetAll();
         }
 
-        public void Information(string message, int durationInSeconds = NotificationConstants.DefaultDuration)
+        public void Information(string message, int? durationInSeconds = null)
         {
-            var toastMessage = new Notification(NotificationType.Information, message, durationInSeconds);
+            var toastMessage = new Notification(Enums.NotificationType.Information, message, durationInSeconds);
             _container.Add(toastMessage);
         }
 
@@ -51,15 +51,15 @@ namespace CoreEssentials.ToastNotify.Services
             _container.RemoveAll();
         }
 
-        public void Success(string message, int durationInSeconds = NotificationConstants.DefaultDuration)
+        public void Success(string message, int? durationInSeconds = null)
         {
-            var toastMessage = new Notification(NotificationType.Success, message, durationInSeconds);
+            var toastMessage = new Notification(Enums.NotificationType.Success, message, durationInSeconds);
             _container.Add(toastMessage);
         }
 
-        public void Warning(string message, int durationInSeconds = NotificationConstants.DefaultDuration)
+        public void Warning(string message, int? durationInSeconds = null)
         {
-            var toastMessage = new Notification(NotificationType.Warning, message, durationInSeconds);
+            var toastMessage = new Notification(Enums.NotificationType.Warning, message, durationInSeconds);
             _container.Add(toastMessage);
         }
     }

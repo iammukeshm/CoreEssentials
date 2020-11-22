@@ -14,21 +14,21 @@ namespace CoreEssentials.ToastNotify.Demo.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-public IToastNotifyService _notifyService { get; }
+        public IToastNotifyService _notifyService { get; }
 
-public HomeController(ILogger<HomeController> logger, IToastNotifyService notifyService)
-{
-    _logger = logger;
-    _notifyService = notifyService;
-}
+        public HomeController(ILogger<HomeController> logger, IToastNotifyService notifyService)
+        {
+            _logger = logger;
+            _notifyService = notifyService;
+        }
 
         public IActionResult Index()
         {
-            _notifyService.Success("Sucess Notification - closes in 3 seconds.",3);
-            _notifyService.Error("Error Notification - closes in 6 seconds.", 6);
-            _notifyService.Warning("Warning Notification - closes in 6 seconds.", 6);
-            _notifyService.Information("Information Notification - closes in 6 seconds.", 6);
-            _notifyService.Custom("Custom notification - closes in 10 seconds.", "#135224", "fa fa-gear",30);
+            _notifyService.Success("Sucess Notification - closes in 1 seconds.", 1);
+            _notifyService.Error("Error Notification - closes in 2 seconds.", 2);
+            _notifyService.Warning("Warning Notification - closes in 3 seconds.", 3);
+            _notifyService.Information("Information Notification - closes in 4 seconds.", 4);
+            _notifyService.Custom("Custom Notification - closes in 5 seconds.", 5, "#135224", "fa fa-gear");
             return View();
         }
 

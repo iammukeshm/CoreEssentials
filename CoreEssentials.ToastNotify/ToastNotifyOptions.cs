@@ -1,35 +1,15 @@
-﻿using System;
+﻿using CoreEssentials.ToastNotify.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
+namespace CoreEssentials.ToastNotify
 {
-    public class Position
-    {
-        public string x { get; set; }
-        public string y { get; set; }
-    }
-
-    public class Icon
-    {
-        public string className { get; set; }
-        public string tagName { get; set; }
-        public string text { get; set; }
-    }
-
-    public class Type
-    {
-        public string type { get; set; }
-        public string background { get; set; }
-        public string className { get; set; }
-        public Icon icon { get; set; }
-    }
-
     public class ToastNotifyOptions
     {
-        public ToastNotifyOptions(int durationInSeconds = 5, string toastPosition = "right-bottom", bool isDismissible = true)
+        public ToastNotifyOptions(int durationInSeconds = 5, string toastPosition = ToastNotifyPositions.BottomRight, bool isDismissible = true)
         {
-            duration = (durationInSeconds > 1) ? durationInSeconds * 1000 : 5000;
+            duration = (durationInSeconds > 0) ? durationInSeconds * 1000 : 5000;
             dismissible = isDismissible;
             ripple = true;
             try
@@ -50,19 +30,19 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
                 };
             }
 
-            types = new List<Type>()
+            types = new List<Config>()
             {
-                new Type
+                new Config
                 {
                     type = "success",
                     background = "#28a745"
                 },
-                new Type
+                new Config
                 {
                     type = "error",
                     background = "#dc3545"
                 },
-                new Type
+                new Config
                 {
                     type = "warning",
                     background = "orange",
@@ -73,7 +53,7 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
                          tagName = "i",
                     }
                 },
-                new Type
+                new Config
                 {
                     type = "info",
                     background = "#17a2b8",
@@ -83,7 +63,7 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
                          tagName = "i",
                     }
                 },
-                new Type
+                new Config
                 {
                     type = "custom",
                     background = "black"
@@ -95,6 +75,6 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
         public Position position { get; set; }
         public bool dismissible { get; set; } = true;
         public bool ripple { get; set; } = true;
-        public List<Type> types { get; set; }
+        public List<Config> types { get; set; }
     }
 }
