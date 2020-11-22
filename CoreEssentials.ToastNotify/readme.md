@@ -1,4 +1,4 @@
-﻿# Toast Notify - Elegant Notifications For ASP.NET Core Applications
+﻿# ToastNotify - Elegant Notifications For ASP.NET Core Applications
 
 Toast Notify is a Minimal & Elegant Toast Notification Package for ASP.NET Core Applications that can be invoked via C#. Compatilble with ASP.NET Core 3.1 and .NET 5.
 
