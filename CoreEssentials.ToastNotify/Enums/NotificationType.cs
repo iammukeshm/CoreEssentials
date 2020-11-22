@@ -9,6 +9,7 @@ namespace CoreEssentials.ToastNotify.Enums
         Success,
         Error,
         Warning,
-        Information
+        Information,
+        Custom
     }
 }

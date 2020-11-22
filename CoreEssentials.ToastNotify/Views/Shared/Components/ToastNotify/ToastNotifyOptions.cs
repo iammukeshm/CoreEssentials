@@ -29,10 +29,9 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
     {
         public ToastNotifyOptions(int durationInSeconds = 5, string toastPosition = "right-bottom", bool isDismissible = true)
         {
-            duration = (durationInSeconds>1) ? durationInSeconds*1000 : 5000;
+            duration = (durationInSeconds > 1) ? durationInSeconds * 1000 : 5000;
             dismissible = isDismissible;
             ripple = true;
-            
             try
             {
                 var positionArray = toastPosition.Split('-');
@@ -50,7 +49,7 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
                     y = "bottom"
                 };
             }
-           
+
             types = new List<Type>()
             {
                 new Type
@@ -66,13 +65,28 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
                 new Type
                 {
                     type = "warning",
-                    background = "#ffc107",
-                    className = "text-dark"
+                    background = "orange",
+                    className = "text-dark",
+                    icon = new Icon
+                    {
+                         className = "fa fa-warning text-dark",
+                         tagName = "i",
+                    }
                 },
                 new Type
                 {
                     type = "info",
-                    background = "#17a2b8"
+                    background = "#17a2b8",
+                    icon = new Icon
+                    {
+                         className = "fa fa-info text-white",
+                         tagName = "i",
+                    }
+                },
+                new Type
+                {
+                    type = "custom",
+                    background = "black"
                 }
             };
 

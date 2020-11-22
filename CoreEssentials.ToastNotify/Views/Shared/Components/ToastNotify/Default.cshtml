@@ -1,5 +1,5 @@
 ﻿@model CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify.ToastNotifyViewModel
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="~/_content/CoreEssentials.ToastNotify/notyf.min.css">
 <script src="~/_content/CoreEssentials.ToastNotify/notyf.min.js"></script>
 <script>
@@ -14,22 +14,35 @@
             {
                 case CoreEssentials.ToastNotify.Enums.NotificationType.Success:
                     <script>
-                       $(document).ready(function () {toastNotifySuccess('@Html.Raw(notification.Message)');});
+                       $(document).ready(function () {toastNotifySuccess('@Html.Raw(notification.Message)','@Html.Raw(notification.Duration)');});
                     </script>
                     break;
                 case CoreEssentials.ToastNotify.Enums.NotificationType.Error:
                     <script>
-                        $(document).ready(function () { toastNotifyError('@Html.Raw(notification.Message)');});
+                        $(document).ready(function () { toastNotifyError('@Html.Raw(notification.Message)','@Html.Raw(notification.Duration)');});
                     </script>
                     break;
                 case CoreEssentials.ToastNotify.Enums.NotificationType.Warning:
                     <script>
-                        $(document).ready(function () { toastNotifyWarning('@Html.Raw(notification.Message)');});
+                        $(document).ready(function () { toastNotifyWarning('@Html.Raw(notification.Message)','@Html.Raw(notification.Duration)');});
                     </script>
                     break;
                 case CoreEssentials.ToastNotify.Enums.NotificationType.Information:
                     <script>
-                        $(document).ready(function () { toastNotifyInformation('@Html.Raw(notification.Message)');});
+                        $(document).ready(function () { toastNotifyInformation('@Html.Raw(notification.Message)','@Html.Raw(notification.Duration)');});
+                    </script>
+                    break;
+
+                case CoreEssentials.ToastNotify.Enums.NotificationType.Custom:
+                    <script>
+                        $(document).ready(function ()
+                        {
+                            toastNotifyCustom(
+                                '@Html.Raw(notification.Message)',
+                                '@Html.Raw(notification.Duration)',
+                                '@Html.Raw(notification.BackgroundColor)',
+                            '@Html.Raw(notification.Icon)');
+                        });
                     </script>
                     break;
             }
@@ -40,18 +53,78 @@
 }
 <script type="text/javascript">
 
-    function toastNotifySuccess(message) {
+    function toastNotifySuccess(message, duration) {
 
-        notyf.success(message);
+        notyf.success({ message: message, duration: duration });
     }
-    function toastNotifyError(message) {
+    function toastNotifyError(message, duration) {
 
-        notyf.error(message);
+        notyf.error({ message: message, duration: duration });
     }
-    function toastNotifyWarning(message) {
-        notyf.open({ type: 'warning', message: message });
+    function toastNotifyWarning(message, duration) {
+        notyf.open({ type: 'warning', message: message, duration: duration });
     }
-    function toastNotifyInformation(message) {
-        notyf.open({ type: 'info', message: message });
+    function toastNotifyInformation(message, duration) {
+        notyf.open({ type: 'info', message: message, duration: duration });
     }
+    function toastNotifyCustom(message, duration, color, iconClass) {
+
+        var lightOrDarkClassName = lightOrDark(color);
+        var iconClassName = iconClass.concat(' ').concat(lightOrDarkClassName);
+        notyf.open({
+            type: 'custom',
+            message: message,
+            duration: duration,
+            className: lightOrDarkClassName,
+            background: color,
+            icon: {
+                className: iconClassName,
+                tagName: 'i'
+            }
+        });
+    }
+    function lightOrDark(color) {
+
+        // Variables for red, green, blue values
+        var r, g, b, hsp;
+
+        // Check the format of the color, HEX or RGB?
+        if (color.match(/^rgb/)) {
+
+            // If RGB --> store the red, green, blue values in separate variables
+            color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+
+            r = color[1];
+            g = color[2];
+            b = color[3];
+        }
+        else {
+
+            // If hex --> Convert it to RGB: http://gist.github.com/983661
+            color = +("0x" + color.slice(1).replace(
+                color.length < 5 && /./g, '$&$&'));
+
+            r = color >> 16;
+            g = color >> 8 & 255;
+            b = color & 255;
+        }
+
+        // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+        hsp = Math.sqrt(
+            0.299 * (r * r) +
+            0.587 * (g * g) +
+            0.114 * (b * b)
+        );
+
+        // Using the HSP value, determine whether the color is light or dark
+        if (hsp > 127.5) {
+
+            return 'text-white';
+        }
+        else {
+
+            return 'text-dark';
+        }
+    }
+
 </script>
