@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CoreEssentials.ToastNotify.Services
 {
-    public interface INotifyService
+    public interface IToastNotifyService
     {
         void Success(string message, int durationInSeconds = NotificationConstants.DefaultDuration);
         void Error(string message, int durationInSeconds = NotificationConstants.DefaultDuration);

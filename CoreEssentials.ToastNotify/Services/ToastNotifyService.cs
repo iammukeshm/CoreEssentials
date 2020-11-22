@@ -8,11 +8,11 @@ using System.Text;
 
 namespace CoreEssentials.ToastNotify.Services
 {
-    public class NotifyService : INotifyService
+    public class ToastNotifyService : IToastNotifyService
     {
         private readonly INotificationContainer<Notification> _container;
 
-        public NotifyService(INotificationContainer<Notification> container)
+        public ToastNotifyService(INotificationContainer<Notification> container)
         {
             this._container = container;
         }

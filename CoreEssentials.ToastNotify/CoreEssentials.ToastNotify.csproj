@@ -7,13 +7,16 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Mukesh Murugan</Authors>
     <Company>codewithmukesh</Company>
-    <Product>CoreEssentials</Product>
-    <Description>Elegant Toast Notifications for ASP.NET Core Applications.</Description>
+    <Product>CoreEssentials.ToastNotify</Product>
+    <Description>Elegant Toast Notifications for ASP.NET Core Applications. Compatilble with ASP.NET Core 3.1 and .NET 5.</Description>
     <Copyright>2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyVersion>0.0.2</AssemblyVersion>
     <FileVersion>0.0.2</FileVersion>
     <Version>0.0.2</Version>
+    <PackageIcon>core-essentials-logo.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/iammukeshm/CoreEssentials/tree/master/CoreEssentials.ToastNotify</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/iammukeshm/CoreEssentials/tree/master/CoreEssentials.ToastNotify</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -21,6 +24,13 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\core-essentials-logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 

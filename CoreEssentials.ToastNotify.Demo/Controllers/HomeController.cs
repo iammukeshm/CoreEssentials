@@ -14,9 +14,9 @@ namespace CoreEssentials.ToastNotify.Demo.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public INotifyService _notifyService { get; }
+        public IToastNotifyService _notifyService { get; }
 
-        public HomeController(ILogger<HomeController> logger, INotifyService notifyService)
+        public HomeController(ILogger<HomeController> logger, IToastNotifyService notifyService)
         {
             _logger = logger;
             _notifyService = notifyService;
@@ -24,10 +24,10 @@ namespace CoreEssentials.ToastNotify.Demo.Controllers
 
         public IActionResult Index()
         {
-            _notifyService.Success("Mukesh Rules");
-            _notifyService.Error("Mukesh Rules");
-            _notifyService.Warning("Mukesh Rules");
-            _notifyService.Information("Mukesh Rules");
+            _notifyService.Success("Success");
+            _notifyService.Error("Error!");
+            _notifyService.Warning("Warning");
+            _notifyService.Information("Here is an Information");
             _notifyService.Custom("Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "orange", "fa fa-gear");
             return View();
         }

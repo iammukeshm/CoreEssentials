@@ -42,7 +42,7 @@ namespace CoreEssentials.ToastNotify.Extensions
             services.AddSingleton<INotificationContainer<Notification>, NotificationContainer<Notification>>();
 
             //Add the ToastNotification implementation
-            services.AddScoped<INotifyService, NotifyService>();
+            services.AddScoped<IToastNotifyService, ToastNotifyService>();
         }
     }
 }

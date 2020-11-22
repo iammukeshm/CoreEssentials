@@ -10,9 +10,9 @@ namespace CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify
     [ViewComponent(Name = "ToastNotify")]
     public class ToastNotifyViewComponent : ViewComponent
     {
-        private readonly INotifyService _service;
+        private readonly IToastNotifyService _service;
 
-        public ToastNotifyViewComponent(INotifyService service)
+        public ToastNotifyViewComponent(IToastNotifyService service)
         {
             this._service = service;
         }

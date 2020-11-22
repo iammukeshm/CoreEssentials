@@ -6,6 +6,6 @@ namespace CoreEssentials.ToastNotify.Constants
 {
     public static class NotificationConstants
     {
-        public const int DefaultDuration = 50;
+        public const int DefaultDuration = 5;
     }
 }
