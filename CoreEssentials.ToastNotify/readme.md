@@ -7,6 +7,7 @@ Toast Notify is a Minimal & Elegant Toast Notification Package for ASP.NET Core 
 ## Features
 
 - 📱 Elegant & Responsive
+- 🐣 Global Configuration to Set the Toast Position, Duration.
 - 🎸 Easily integration with ASP.NET Core 3.1 and .NET 5 Applications.
 - 🎃 Support to render custom HTML content within the toasts
 - 🐣 Simple and Customizable. Create your own custom toast with your favorite color and icons with ease!
@@ -32,10 +33,21 @@ A Demo Implementation using ASP.NET Core MVC can be found here - https://github.
 
 ## Usage
 
-Once tha package is installed, open your Startup.cs and add in the following to the ConfigureServices method.
+Once the package is installed, open your Startup.cs and add in the following to the ConfigureServices method.
 
 ```csharp
 services.AddToastNotify();
+```
+
+### Global Settings
+It is not possible (from version 0.0.4) to set the position of the toasts and duration globally while registering the service.
+```csharp
+services.AddToastNotify(new ToastNotifyOptions(1, ToastNotifyPositions.BottomCenter));
+```
+> Available Positions are TopRight,BottomRight,BottomLeft,TopLeft,TopCenter,BottomCenter.
+Set the isDismissible bool to false, to remove the close icon from your toasts! Pretty handy.
+```csharp
+services.AddToastNotify(new ToastNotifyOptions(1, ToastNotifyPositions.BottomCenter,false));
 ```
 
 > More settings will be added in the upcoming releases
@@ -86,8 +98,8 @@ _notifyService.Success("This toast will be dismissed in 10 seconds.",10);
 As the previous 4 Modes are very static in terms of color and icon, I have added a 5th type that let's you customize everything.
 
 ```csharp
-_notifyService.Custom("Custom Orange Notification with Gear Icon from Font Awesome that closes in 10 seconds.", "orange", "fa fa-gear",10);
-_notifyService.Custom("Custom Green Notification with Gear Icon from Font Awesome that closes in 10 seconds.", "#135224", "fa fa-gear",10);
+_notifyService.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
+_notifyService.Custom("Custom Notification - closes in 5 seconds.", 10, "#135224", "fa fa-gear");
             
 ```
 Here, you add the class of the icon as required. Font Awesome icons are supported by default. You would just have to pass the icon class name. The color of the text and icon is automatically set based on the color of the notification. Supports HEXR Color Codes too!
