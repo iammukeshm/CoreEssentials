@@ -1,0 +1,57 @@
+﻿@model CoreEssentials.ToastNotify.Views.Shared.Components.ToastNotify.ToastNotifyViewModel
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="~/_content/CoreEssentials.ToastNotify/notyf.min.css">
+<script src="~/_content/CoreEssentials.ToastNotify/notyf.min.js"></script>
+<script>
+    const notyf = new Notyf(@Html.Raw(Model.Configuration));
+</script>
+@{
+    @if (Model.Notifications != null)
+    {
+        foreach (var notification in Model.Notifications)
+        {
+            switch (notification.Type)
+            {
+                case CoreEssentials.ToastNotify.Enums.NotificationType.Success:
+                    <script>
+                       $(document).ready(function () {toastNotifySuccess('@Html.Raw(notification.Message)');});
+                    </script>
+                    break;
+                case CoreEssentials.ToastNotify.Enums.NotificationType.Error:
+                    <script>
+                        $(document).ready(function () { toastNotifyError('@Html.Raw(notification.Message)');});
+                    </script>
+                    break;
+                case CoreEssentials.ToastNotify.Enums.NotificationType.Warning:
+                    <script>
+                        $(document).ready(function () { toastNotifyWarning('@Html.Raw(notification.Message)');});
+                    </script>
+                    break;
+                case CoreEssentials.ToastNotify.Enums.NotificationType.Information:
+                    <script>
+                        $(document).ready(function () { toastNotifyInformation('@Html.Raw(notification.Message)');});
+                    </script>
+                    break;
+            }
+        }
+
+    }
+
+}
+<script type="text/javascript">
+
+    function toastNotifySuccess(message) {
+
+        notyf.success(message);
+    }
+    function toastNotifyError(message) {
+
+        notyf.error(message);
+    }
+    function toastNotifyWarning(message) {
+        notyf.open({ type: 'warning', message: message });
+    }
+    function toastNotifyInformation(message) {
+        notyf.open({ type: 'info', message: message });
+    }
+</script>

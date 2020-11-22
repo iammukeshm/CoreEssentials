@@ -4,15 +4,15 @@ namespace CoreEssentials.Results
 {
     public class Result : IResult
     {
-        protected Result()
+        public Result()
         {
         }
 
         public bool Failed => !Succeeded;
 
-        public string Message { get; protected set; }
+        public string Message { get; set; }
 
-        public bool Succeeded { get; protected set; }
+        public bool Succeeded { get; set; }
 
         public static IResult Fail()
         {
@@ -57,11 +57,11 @@ namespace CoreEssentials.Results
 
     public class Result<T> : Result, IResult<T>
     {
-        protected Result()
+        public Result()
         {
         }
 
-        public T Data { get; private set; }
+        public T Data { get; set; }
 
         public static new Result<T> Fail()
         {

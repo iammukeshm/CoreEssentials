@@ -2,9 +2,9 @@
 {
     public interface IResult
     {
-        string Message { get; }
+        string Message { get; set; }
 
-        bool Succeeded { get; }
+        bool Succeeded { get; set; }
     }
 
     public interface IResult<out T> : IResult

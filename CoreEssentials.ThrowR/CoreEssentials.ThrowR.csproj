@@ -15,4 +15,8 @@
     <Version>0.0.2</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CoreEssentials.Exceptions\CoreEssentials.Exceptions.csproj" />
+  </ItemGroup>
+
 </Project>

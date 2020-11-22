@@ -24,4 +24,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreEssentials.Abstractions\CoreEssentials.Abstractions.csproj" />
+  </ItemGroup>
 </Project>

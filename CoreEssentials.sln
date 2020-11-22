@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEssentials.Abstractions
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEssentials.EntityFrameworkCore", "CoreEssentials.EntityFrameworkCore\CoreEssentials.EntityFrameworkCore.csproj", "{09E03677-0D39-4433-B1CD-02457049F8DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreEssentials.ToastNotify", "CoreEssentials.ToastNotify\CoreEssentials.ToastNotify.csproj", "{6548C162-CB01-4601-94C5-2664E81B3204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEssentials.ToastNotify", "CoreEssentials.ToastNotify\CoreEssentials.ToastNotify.csproj", "{0ED02047-ED68-4BB1-94EB-0EB29DB2E229}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToastNotify", "ToastNotify", "{DD6C3E14-5C79-4D4E-B2A7-19615BAA9F4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEssentials.ToastNotify.Demo", "CoreEssentials.ToastNotify.Demo\CoreEssentials.ToastNotify.Demo.csproj", "{A403D0B7-92CF-4C95-98E7-52157E7455B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,13 +51,21 @@ Global
 		{09E03677-0D39-4433-B1CD-02457049F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E03677-0D39-4433-B1CD-02457049F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E03677-0D39-4433-B1CD-02457049F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6548C162-CB01-4601-94C5-2664E81B3204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6548C162-CB01-4601-94C5-2664E81B3204}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6548C162-CB01-4601-94C5-2664E81B3204}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6548C162-CB01-4601-94C5-2664E81B3204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED02047-ED68-4BB1-94EB-0EB29DB2E229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED02047-ED68-4BB1-94EB-0EB29DB2E229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED02047-ED68-4BB1-94EB-0EB29DB2E229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED02047-ED68-4BB1-94EB-0EB29DB2E229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A403D0B7-92CF-4C95-98E7-52157E7455B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A403D0B7-92CF-4C95-98E7-52157E7455B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A403D0B7-92CF-4C95-98E7-52157E7455B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A403D0B7-92CF-4C95-98E7-52157E7455B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0ED02047-ED68-4BB1-94EB-0EB29DB2E229} = {DD6C3E14-5C79-4D4E-B2A7-19615BAA9F4F}
+		{A403D0B7-92CF-4C95-98E7-52157E7455B1} = {DD6C3E14-5C79-4D4E-B2A7-19615BAA9F4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {47E085A4-B552-4E60-8DCC-0446DBFFA4AC}
